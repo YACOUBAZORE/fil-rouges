@@ -9,6 +9,7 @@ use App\Http\Controllers\StatutsController;
 use App\Http\Controllers\NiveausController;
 use App\Http\Controllers\AnneesController;
 use App\Http\Controllers\FilieresController;
+use App\Http\Controllers\ContratsController;
 
 
 
@@ -47,8 +48,8 @@ Route::get("/liste4",[ZoreController::class,"liste4"])->name("liste4");
 Route::get("/statut",[StatutsController::class,"statut"])->name("statut");
 Route::get("/filiere",[FilieresController::class,"filiere"])->name("filiere");
 Route::get("/annee",[AnneesController::class,"annee"])->name("annee");
-
 Route::get("/niveau",[NiveausController::class,"niveau"])->name("niveau");
+Route::get("/contrat",[ContratsController::class,"contrat"])->name("contrat");
 
 
 /* enregistre dans la base de donnees*/
@@ -60,11 +61,18 @@ Route::post("/ajoutstatut",[StatutsController::class,"store"])->name("Ajout3");
 Route::post("/ajoutfiliere",[FilieresController::class,"store"])->name("Ajout4");
 Route::post("/ajoutannee",[AnneesController::class,"store"])->name("Ajout5");
 Route::post("/ajoutniveau",[NiveausController::class,"store"])->name("Ajout6");
+Route::post("/contrat",[ContratsController::class,"store"])->name("Ajout7");
 
 
 /* recupere liste*/
 Route::get("/tuteur",[TuteursController::class,"index"])->name("tuteur");
 Route::get("/filiere",[FilieresController::class,"filie"])->name("filiere");
+Route::get("/entreprise",[EntreprisesController::class,"entrep"])->name("entreprise");
+Route::get("/etudiant",[EtudiantsController::class,"etud"])->name("etudiant");
+Route::get("/statut",[StatutsController::class,"stat"])->name("statut");
+Route::get("/annee",[AnneesController::class,"an"])->name("annee");
+Route::get("/niveau",[NiveausController::class,"niv"])->name("niveau");
+Route::get("/contrat",[ContratsController::class,"cont"])->name("contrat");
 
 
 

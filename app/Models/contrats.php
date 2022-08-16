@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class niveaus extends Model
+class contrats extends Model
 {
     use  HasFactory;
 
@@ -15,15 +15,17 @@ class niveaus extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'niveau_etude',
+        'contrat',
         
     ];
+
+    
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'contrat_verified_at' => 'datetime',
     ];
 }

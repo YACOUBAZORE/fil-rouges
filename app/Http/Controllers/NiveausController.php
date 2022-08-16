@@ -34,10 +34,8 @@ class NiveausController extends Controller
      */
     public function store(Request $request)
     {
-        $niveau =niveaus::create([
-            'niveau_etude' => $request->niveau_etude,
-            
-           
+        $niveau = niveaus::create([
+            'niveau_etude' => $request->niveau_etude
         ]);
 
         return view('niveau');

@@ -46,9 +46,20 @@ class EntreprisesController extends Controller
                 
                
             ]);
-            return view('entreprise');
+          
+            $entreprises = entreprises::orderBy('nom','asc')->get();
+            return view('entreprise',compact('entreprises'));
+
+            
     
         
+    }
+
+    public function entrep(){
+        
+        $entreprises = entreprises::orderBy('nom','asc')->get();
+
+         return view('entreprise',compact('entreprises'));
     }
 
     /**

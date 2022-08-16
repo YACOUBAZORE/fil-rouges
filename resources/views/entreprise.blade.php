@@ -49,4 +49,40 @@
 <!-- /row -->
 
 
+
+  <!-- recuperation de liste-->
+
+  <div class="center">
+            <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+            <th scope="col">nom</th>
+            <th scope="col">email</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($entreprises as $entreprises)
+            <tr>
+            <th scope="row">{{$loop->index + 1}}</th>
+            <td>{{$entreprises->nom}}</td>
+            <td>{{$entreprises->email}}</td>
+            <td>{{$entreprises->created_at}}</td>
+            <td>
+                <a href="" class="btn btn-info">Editer</a>
+                <a href="" class="btn btn-danger" onclick="">Suprimer</a>
+
+                <form id="" action="" method="post">
+                    @csrf 
+                    <input type="hidden" name="_method" value="delete">
+                </form>
+            </td>
+            </tr>  
+            @endforeach
+        </tbody>
+        </table>
+        </div>
+
+
+
 @endsection

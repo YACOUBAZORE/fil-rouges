@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\annees;
+use App\Models\contrats;
 use Illuminate\Http\Request;
 
-class AnneesController extends Controller
+class ContratsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function annee(){
-        return view("annee");
-    } 
+    public function contrat()
+    {
+        return view('contrat');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -34,31 +35,36 @@ class AnneesController extends Controller
      */
     public function store(Request $request)
     {
-        $annee = annees::create([
-            'annee_academique' => $request->annee_academique,
-            
-           
-        ]);
-        $annees = annees::orderBy('annee_academique','asc')->get();
-        return view('annee',compact('annees'));
-
+        {
+    
+            $contrat = contrats::create([
+                'contrat' => $request->contrat,
+                 
+            ]);
+            $contrats = contrats::orderBy('contrat','asc')->get();
+            return view('contrat',compact('contrats'));
+    
+    
         
+    }
+
+
 
     }
 
-    public function an(){
+    public function cont(){
         
-        $annees = annees::orderBy('annee_academique','asc')->get();
-      return view('annee',compact('annees'));
+        $contrats = contrats::orderBy('contrat','asc')->get();
+       return view('contrat',compact('contrats'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\annees  $annees
+     * @param  \App\Models\contrats  $contrats
      * @return \Illuminate\Http\Response
      */
-    public function show(annees $annees)
+    public function show(contrats $contrats)
     {
         //
     }
@@ -66,10 +72,10 @@ class AnneesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\annees  $annees
+     * @param  \App\Models\contrats  $contrats
      * @return \Illuminate\Http\Response
      */
-    public function edit(annees $annees)
+    public function edit(contrats $contrats)
     {
         //
     }
@@ -78,10 +84,10 @@ class AnneesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\annees  $annees
+     * @param  \App\Models\contrats  $contrats
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, annees $annees)
+    public function update(Request $request, contrats $contrats)
     {
         //
     }
@@ -89,10 +95,10 @@ class AnneesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\annees  $annees
+     * @param  \App\Models\contrats  $contrats
      * @return \Illuminate\Http\Response
      */
-    public function destroy(annees $annees)
+    public function destroy(contrats $contrats)
     {
         //
     }

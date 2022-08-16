@@ -35,7 +35,7 @@ Route::get('/dashboard', function () {
 
 Route::get("/index",[ZoreController::class,"index"])->name("index");
 
-Route::get("/secretaire",[ZoreController::class,"insc"])->name("secretaire");
+Route::get("/secretaire",[SecretairesController::class,"insc"])->name("secretaire");
 Route::get("/etudiant",[EtudiantsController::class,"etudiant"])->name("etudiant");
 Route::get("/tuteur",[TuteursController::class,"tuteur"])->name("tuteur");
 Route::get("/entreprise",[EntreprisesController::class,"entreprise"])->name("entreprise");

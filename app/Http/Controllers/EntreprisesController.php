@@ -12,9 +12,12 @@ class EntreprisesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function entreprise()
+    public function index()
     {
-        return view('entreprise');
+        
+        $entreprises = entreprises::orderBy('nom','asc')->get();
+
+         return view('entreprise',compact('entreprises'));
 
     }
 
@@ -54,13 +57,18 @@ class EntreprisesController extends Controller
     
         
     }
+    // public funcion edit('$id')
+    // {
+    //     $entreprises = entreprises::find($id);
+    //     return view('edit');
+    // }
 
-    public function entrep(){
+    // public function entrep(){
         
-        $entreprises = entreprises::orderBy('nom','asc')->get();
+    //     $entreprises = entreprises::orderBy('nom','asc')->get();
 
-         return view('entreprise',compact('entreprises'));
-    }
+    //      return view('entreprise',compact('entreprises'));
+    // }
 
     /**
      * Display the specified resource.
@@ -79,9 +87,11 @@ class EntreprisesController extends Controller
      * @param  \App\Models\entreprises  $entreprises
      * @return \Illuminate\Http\Response
      */
-    public function edit(entreprises $entreprises)
-    {
-        //
+    public function edit(entreprises $entreprises, $id)
+    {$entreprise =  entreprises::find($id);
+        return view ("edit", compact("entreprise"));
+        
+        
     }
 
     /**
@@ -93,7 +103,27 @@ class EntreprisesController extends Controller
      */
     public function update(Request $request, entreprises $entreprises)
     {
-        //
+        $request->validate([
+            'nom' =>'bail |required|',
+            'email' => 'bail |required|',
+            'mot_pass' => 'bail |required|',
+            'confirmer_mot_pass' => 'bail |required|',
+            
+            
+           
+        ]);
+
+        $entreprises->update([
+            'nom' => $request->nom,
+            'email' => $request->email,
+            'mot_pass' => $request->mot_pass,
+            'confirmer_mot_pass' => $request->confirmer_mot_pass,
+            
+            
+           
+        ]);
+        return redirect(route("entreprise.index"));
+
     }
 
     /**
@@ -104,6 +134,7 @@ class EntreprisesController extends Controller
      */
     public function destroy(entreprises $entreprises)
     {
-        //
+        $entreprises->delete();
+        return redirect(route('entreprise.index'));
     }
 }

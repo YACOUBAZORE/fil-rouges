@@ -10,6 +10,8 @@ use App\Http\Controllers\NiveausController;
 use App\Http\Controllers\AnneesController;
 use App\Http\Controllers\FilieresController;
 use App\Http\Controllers\ContratsController;
+use App\Http\Controllers\LevelsController;
+use App\Http\Controllers\MessageController;
 
 
 
@@ -36,45 +38,25 @@ Route::get('/dashboard', function () {
 
 Route::get("/index",[ZoreController::class,"index"])->name("index");
 
-Route::get("/secretaire",[SecretairesController::class,"insc"])->name("secretaire");
-Route::get("/etudiant",[EtudiantsController::class,"etudiant"])->name("etudiant");
-Route::get("/tuteur",[TuteursController::class,"tuteur"])->name("tuteur");
-Route::get("/entreprise",[EntreprisesController::class,"entreprise"])->name("entreprise");
-Route::get("/mail1",[ZoreController::class,"mail1"])->name("mail1");
-Route::get("/liste1",[ZoreController::class,"liste1"])->name("liste1");
-Route::get("/liste2",[ZoreController::class,"liste2"])->name("liste2");
-Route::get("/liste3",[ZoreController::class,"liste3"])->name("liste3");
-Route::get("/liste4",[ZoreController::class,"liste4"])->name("liste4");
-Route::get("/statut",[StatutsController::class,"statut"])->name("statut");
-Route::get("/filiere",[FilieresController::class,"filiere"])->name("filiere");
-Route::get("/annee",[AnneesController::class,"annee"])->name("annee");
-Route::get("/niveau",[NiveausController::class,"niveau"])->name("niveau");
-Route::get("/contrat",[ContratsController::class,"contrat"])->name("contrat");
 
 
 /* enregistre dans la base de donnees*/
 
-Route::post("/ajouttuteur",[TuteursController::class,"store"])->name("Ajout");
-Route::post("/ajoutentreprise",[EntreprisesController::class,"store"])->name("Ajout1");
-Route::post("/ajoutetudiant",[EtudiantsController::class,"store"])->name("Ajout2");
-Route::post("/ajoutstatut",[StatutsController::class,"store"])->name("Ajout3");
-Route::post("/ajoutfiliere",[FilieresController::class,"store"])->name("Ajout4");
-Route::post("/ajoutannee",[AnneesController::class,"store"])->name("Ajout5");
-Route::post("/ajoutniveau",[NiveausController::class,"store"])->name("Ajout6");
-Route::post("/contrat",[ContratsController::class,"store"])->name("Ajout7");
-
-
-/* recupere liste*/
-Route::get("/tuteur",[TuteursController::class,"index"])->name("tuteur");
-Route::get("/filiere",[FilieresController::class,"filie"])->name("filiere");
-Route::get("/entreprise",[EntreprisesController::class,"entrep"])->name("entreprise");
-Route::get("/etudiant",[EtudiantsController::class,"etud"])->name("etudiant");
-Route::get("/statut",[StatutsController::class,"stat"])->name("statut");
-Route::get("/annee",[AnneesController::class,"an"])->name("annee");
-Route::get("/niveau",[NiveausController::class,"niv"])->name("niveau");
-Route::get("/contrat",[ContratsController::class,"cont"])->name("contrat");
-
+Route::resource('etudiant',EtudiantsController::class);
+Route::resource('tuteur',TuteursController::class);
+Route::resource('annee',AnneesController::class);
+Route::resource('filiere',FilieresController::class);
+Route::resource('level',LevelsController::class);
+Route::resource('statut',StatutsController::class);
+Route::resource('contrat',ContratsController::class);
 
 
 
 require __DIR__ .'/auth.php';
+
+
+
+
+
+
+Route::resource('entreprise',EntreprisesController::class);

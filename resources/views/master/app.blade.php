@@ -252,7 +252,6 @@
               <span>Dashboard</span>
               </a>
               <ul class="sub">
-            <li><a href="{{route('secretaire')}}">Profil Administrateur</a></li>
          </ul>
           </li>
 
@@ -262,16 +261,16 @@
               <span>ADMINISTRATEUR</span>
               </a>
             <ul class="sub">
-            <li><a href="{{route('secretaire')}}">Inscrire une secretaire</a></li>
-              <li><a href="{{route('etudiant')}}">Inscrire un etudiant</a></li>
-              <li><a href="{{route('tuteur')}}">Inscrire un tuteur</a></li>
-              <li><a href="{{route('entreprise')}}">Inscription entreprise</a></li>
-              <li><a href="{{route('mail1')}}">Envoi Mail</a></li>
-              <li><a href="{{route('liste1')}}">Voir liste des etudians</a></li>
-              <li><a href="{{route('liste2')}}">Voir liste des secretaires</a></li>
-              <li><a href="{{route('liste3')}}">Voir liste des parensts(tuteurs)</a></li>
-              <li><a href="{{route('liste4')}}">Voir liste des entreprises</a></li>
-       
+              <li><a href="{{route('etudiant.index')}}">Inscrire un etudiant</a></li>
+              <li><a href="{{route('tuteur.index')}}">Inscrire un tuteur</a></li>
+              <li><a href="{{route('entreprise.index')}}">Inscription entreprise</a></li> 
+              <li><a href="{{route('tuteur.index')}}">Inscrire un tuteur</a></li>
+              <li><a href="{{route('annee.index')}}">Annee universitaire</a></li>
+              <li><a href="{{route('level.index')}}">Formulaire du niveau univesitaire</a></li>
+              <li><a href="{{route('entreprise.index')}}">Formulaire Filiere</a></li>
+              <li><a href="{{route('filiere.index')}}">Formulaire Filiere</a></li>
+              <li><a href="{{route('statut.index')}}">Formulaire statut</a></li>
+              <li><a href="{{route('contrat.index')}}">Formulaire contrat</a></li>
            <li><a href="panels.html">Panels</a></li>
   
               <li><a href="font_awesome.html">Font Awesome</a></li>
@@ -315,13 +314,16 @@
               <span>SECRETAIRE</span>
               </a>
             <ul class="sub">
-              <li><a href="{{route('secretaire')}}">Inscrire une secretaire</a></li>
-              <li><a href="{{route('etudiant')}}">Inscrire un etudiant</a></li>
-              <li><a href="{{route('tuteur')}}">Inscrire un tuteur</a></li>
-              <li><a href="{{route('mail1')}}">Envoi Mail</a></li>
+              <li><a href="{{route('etudiant.index')}}">Inscrire un etudiant</a></li>
+              <li><a href="{{route('tuteur.index')}}">Inscrire un tuteur</a></li>
+              <li><a href="{{route('annee.index')}}">Annee universitaire</a></li>
+              <li><a href="{{route('level.index')}}">Formulaire du niveau univesitaire</a></li>
+              <li><a href="{{route('entreprise.index')}}">Formulaire Filiere</a></li>
+              <li><a href="{{route('filiere.index')}}">Formulaire Filiere</a></li>
+              <li><a href="{{route('statut.index')}}">Formulaire statut</a></li>
+              <li><a href="{{route('contrat.index')}}">Formulaire contrat</a></li>
        
-              <li><a href="{{route('entreprise')}}">Inscription entreprise</a></li>
-              <li><a href="{{route('mail1')}}">Envoi Mail</a></li>
+              <li><a href="{{route('entreprise.index')}}">Inscription entreprise</a></li>
 
             </ul>
           </li>

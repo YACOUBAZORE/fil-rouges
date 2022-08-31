@@ -12,9 +12,10 @@ class FilieresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function filiere(){
-        return view("filiere");
-    } 
+    public function index(){
+        $filieres = filieres::orderBy('nom_filiere','asc')->get();
+
+        return view('filiere',compact('filieres'));    } 
 
 
     /**
@@ -41,7 +42,9 @@ class FilieresController extends Controller
            
         ]);
 
-        return view('filiere');
+        $filieres = filieres::orderBy('nom_filiere','asc')->get();
+
+        return view('filiere',compact('filieres'));
 
     }
 

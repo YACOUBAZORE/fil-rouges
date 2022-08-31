@@ -38,9 +38,18 @@ class NiveausController extends Controller
             'niveau_etude' => $request->niveau_etude
         ]);
 
-        return view('niveau');
+        $niveaus = niveaus::orderBy('niveau_etude','asc')->get();
+        return view('niveau',compact('niveaus'));
 
     }
+
+    public function niv (){
+        
+        $niveaus = niveaus::orderBy('niveau_etude','asc')->get();
+
+         return view('niveau',compact('niveaus'));
+    }
+
 
     /**
      * Display the specified resource.

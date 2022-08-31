@@ -12,9 +12,10 @@ class ContratsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function contrat()
+    public function index()
     {
-        return view('contrat');
+        $contrats = contrats::orderBy('contrat','asc')->get();
+        return view('contrat',compact('contrats'));
     }
 
     /**

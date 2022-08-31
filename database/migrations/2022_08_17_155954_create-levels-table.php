@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNiveausTable extends Migration
+class CreateLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateNiveausTable extends Migration
      */
     public function up()
     {
-        Schema::create('niveaus', function (Blueprint $table) {
+        Schema::create('levels', function (Blueprint $table) {
             $table->id();
-            $table->string('niveau_etude')->unique();
+            $table->string('level')->unique();
             $table->timestamps();
         });
     }
@@ -27,7 +27,6 @@ class CreateNiveausTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('niveaus');
-
+        Schema::dropIfExists('levels');
     }
 }

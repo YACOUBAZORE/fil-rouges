@@ -13,8 +13,10 @@ class TuteursController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-        public function tuteur(){
-            return view("tuteur");
+        public function index(){
+             $tuteurs = tuteurs::orderBy('nom','asc')->get();
+        return view('tuteur',compact('tuteurs'));
+
         } 
     
 
@@ -55,12 +57,7 @@ class TuteursController extends Controller
 
     }
 
-    public function index(){
-        
-        $tuteurs = tuteurs::orderBy('nom','asc')->get();
-
-         return view('tuteur',compact('tuteurs'));
-    }
+    
     /**
      * Display the specified resource.
      *

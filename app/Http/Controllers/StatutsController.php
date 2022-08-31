@@ -12,8 +12,9 @@ class StatutsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function statut(){
-        return view("statut");
+    public function index(){
+        $statuts = statuts::orderBy('statut','asc')->get();
+        return view('statut',compact('statuts'));
     } 
 
     /**
@@ -40,9 +41,17 @@ class StatutsController extends Controller
             
            
         ]);
-        return view('statut');
+        $statuts = statuts::orderBy('statut','asc')->get();
+        return view('statut',compact('statuts'));
 
     }
+
+    // public function stat(){
+        
+    //     $statuts = statuts::orderBy('statut','asc')->get();
+
+    //      return view('statut',compact('statuts'));
+    // }
 
     /**
      * Display the specified resource.

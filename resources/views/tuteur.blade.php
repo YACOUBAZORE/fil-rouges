@@ -11,7 +11,7 @@
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> Formulaire d'insciption Tuteur</h4>
-              <form class="form-horizontal style-form" method="POST" action="{{ route('Ajout') }}" >
+              <form class="form-horizontal style-form" method="POST" action="{{ route('tuteur.store') }}" >
               @csrf
               <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">nom</label>
@@ -70,10 +70,12 @@
             <table class="table table-bordered table-hover">
         <thead>
             <tr>
+            <th scope="col">id</th>
             <th scope="col">nom</th>
             <th scope="col">prenom</th>
             <th scope="col">email</th>
             <th scope="col">numero</th>
+            <th scope="col">created_at</th>
             <th scope="col">Action</th>
             </tr>
         </thead>
@@ -83,8 +85,9 @@
             <th scope="row">{{$loop->index + 1}}</th>
             <td>{{$tuteurs->nom}}</td>
             <td>{{$tuteurs->prenom}}</td>
-            <td>{{$tuteurs->email}}</td>
-            <td>{{$tuteurs->numero}}</td>
+            <!-- <td>{{$tuteurs->email}}</td> -->
+            <td> <a href="mailto:{{$tuteurs->email}}"  class="text-primary">yacoubazore9@gmail.com</td>         
+              <td>{{$tuteurs->numero}}</td>
             <td>{{$tuteurs->created_at}}</td>
             <td>
                 <a href="" class="btn btn-info">Editer</a>

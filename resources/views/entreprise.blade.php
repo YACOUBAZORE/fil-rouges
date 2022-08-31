@@ -11,12 +11,17 @@
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> Formulaire d'insciption Entreprise</h4>
-              <form class="form-horizontal style-form" method="POST" action="{{ route('Ajout1') }}" >
+              @if(isset($entreprises))
+              <form  method="POST" action="{{route('entreprise.update',$entreprises)}}">
+                @method("PUT")
+                @else
+              <form class="form-horizontal style-form" method="POST" action="{{ route('entreprise.store') }}" >
+             @endif
               @csrf
               <div class="form-group">
                   <label class="col-sm-2 col-sm-2 control-label">nom</label>
                   <div class="col-sm-10">
-                  <input type="text" class="form-control" placeholder="Nom" name="nom" />
+                  <input type="text" class="form-control" placeholder="Nom" name="nom"  />
                   </div>
                 </div>
               
@@ -56,26 +61,26 @@
             <table class="table table-bordered table-hover">
         <thead>
             <tr>
+            <th scope="col">id</th>
             <th scope="col">nom</th>
             <th scope="col">email</th>
+            <th scope="col">created_at</th>
             <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($entreprises as $entreprises)
+            @foreach($entreprises as $entreprise)
             <tr>
             <th scope="row">{{$loop->index + 1}}</th>
-            <td>{{$entreprises->nom}}</td>
-            <td>{{$entreprises->email}}</td>
-            <td>{{$entreprises->created_at}}</td>
+            <td>{{$entreprise->nom}}</td>
+            <td>{{$entreprise->email}}</td>
+            <td>{{$entreprise->created_at}}</td>
             <td>
-                <a href="" class="btn btn-info">Editer</a>
-                <a href="" class="btn btn-danger" onclick="">Suprimer</a>
+              
+                <a href="{{route('entreprise.edit' , $entreprise->id)}}" class="btn btn-info">Editer</a>
+                <a href="{{route('entreprise.destroy' , $entreprise->id)}}" class="btn btn-danger" onclick="">Suprimer</a>
 
-                <form id="" action="" method="post">
-                    @csrf 
-                    <input type="hidden" name="_method" value="delete">
-                </form>
+              
             </td>
             </tr>  
             @endforeach

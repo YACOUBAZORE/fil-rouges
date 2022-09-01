@@ -12,7 +12,7 @@
             <div class="form-panel">
               <h4 class="mb"><i class="fa fa-angle-right"></i> Formulaire d'insciption Entreprise</h4>
               @if(isset($entreprises))
-              <form  method="POST" action="{{route('entreprise.update',$entreprises)}}">
+              <form  method="POST" action="">
                 @method("PUT")
                 @else
               <form class="form-horizontal style-form" method="POST" action="{{ route('entreprise.store') }}" >

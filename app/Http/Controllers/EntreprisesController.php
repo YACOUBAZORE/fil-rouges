@@ -101,30 +101,50 @@ class EntreprisesController extends Controller
      * @param  \App\Models\entreprises  $entreprises
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, entreprises $entreprises)
-    {
-        $request->validate([
-            'nom' =>'bail |required|',
-            'email' => 'bail |required|',
-            'mot_pass' => 'bail |required|',
-            'confirmer_mot_pass' => 'bail |required|',
+    // public function update(Request $request, entreprises $entreprises)
+    // {
+    //     $request->validate([
+    //         'nom' =>'bail |required|',
+    //         'email' => 'bail |required|',
+    //         'mot_pass' => 'bail |required|',
             
             
            
-        ]);
+    //     ]);
 
-        $entreprises->update([
-            'nom' => $request->nom,
-            'email' => $request->email,
-            'mot_pass' => $request->mot_pass,
-            'confirmer_mot_pass' => $request->confirmer_mot_pass,
-            
-            
-           
-        ]);
-        return redirect(route("entreprise.index"));
+        
+    //     $entreprise = entreprises::update([
+    //         'nom' => $request->nom,
+    //         'email' => $request->email,
+    //         'mot_pass' => $request->mot_pass,
+    //         'confirmer_mot_pass' => $request->confirmer_mot_pass,
+    //         ]);
+   
+    //     return redirect(route("entreprise.index"));
 
-    }
+    // }
+
+
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        
+                    'nom' =>'bail |required|',
+                    'email' => 'bail |required|',
+                     'mot_pass' => 'bail |required|',
+                    
+                    
+        
+        
+        ]);
+        $entreprise = $entreprises::find($id);
+        $entreprise->nom = $request->nom;
+        $entreprise->email = $request->email;
+        $entreprise->mot_pass= $request->mot_pass;
+        $entreprise->save();
+return redirect()->route('$entreprise.index')
+->with('success','Spécialité mis à jour avec succès');
+}
 
     /**
      * Remove the specified resource from storage.

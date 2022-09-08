@@ -131,7 +131,7 @@ class EntreprisesController extends Controller
         
                     'nom' =>'bail |required|',
                     'email' => 'bail |required|',
-                     'mot_pass' => 'bail |required|',
+                     
                     
                     
         
@@ -141,8 +141,9 @@ class EntreprisesController extends Controller
         $entreprise->nom = $request->nom;
         $entreprise->email = $request->email;
         $entreprise->mot_pass= $request->mot_pass;
+       
         $entreprise->save();
-return redirect()->route('$entreprise.index')
+return redirect()->route('$entreprise')
 ->with('success','Spécialité mis à jour avec succès');
 }
 
@@ -154,6 +155,7 @@ return redirect()->route('$entreprise.index')
      */
     public function destroy(entreprises $entreprises)
     {
+        $entreprise =  entreprises::find($id);
         $entreprises->delete();
         return redirect(route('entreprise.index'));
     }

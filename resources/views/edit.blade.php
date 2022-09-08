@@ -13,7 +13,7 @@
               <form  method="PUT" actiion="">
                 @methode("PUT")
                 @else              
-              <form class="form-horizontal style-form" method="PUT" action="{{ route('entreprise.update',$entreprise->id) }}" >
+              <form class="form-horizontal style-form" method="PUT" action="{{ route('entreprise.update') }}" >
              @endif
               @csrf
               <div class="form-group">

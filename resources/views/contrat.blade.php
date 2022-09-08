@@ -38,7 +38,9 @@
             <table class="table table-bordered table-hover">
         <thead>
             <tr>
+            <th scope="col">id</th>
             <th scope="col">contrat</th>
+            <th scope="col">created_at</th>
             <th scope="col">Action</th>
             </tr>
         </thead>
@@ -49,16 +51,20 @@
             <td>{{$contrats->contrat}}</td>
             <td>{{$contrats->created_at}}</td>
             <td>
-                <a href="" class="btn btn-info">Editer</a>
-                <a href="" class="btn btn-danger" onclick="">Suprimer</a>
+            <form action="{{ route('contrat.destroy',$contrats->id) }}" method="Post">                
 
-                <form id="" action="" method="post">
-                    @csrf 
-                    <input type="hidden" name="_method" value="delete">
-                </form>
-            </td>
-            </tr>  
-            @endforeach
+                <a href="{{ route('contrat.edit',$contrats->id) }}" class="btn btn-info">Editer</a>
+                <form method="POST" action="{{ route('contrat.destroy', $contrats) }}" >
+	<!-- CSRF token -->
+
+  @csrf 
+ @method('DELETE')
+ <a href="" class="btn btn-danger" onclick="">Suprimer</a>
+            </td>          
+</form>
+</td>
+   </tr>  
+        @endforeach
         </tbody>
         </table>
         </div>

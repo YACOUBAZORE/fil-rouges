@@ -76,9 +76,19 @@ class ContratsController extends Controller
      * @param  \App\Models\contrats  $contrats
      * @return \Illuminate\Http\Response
      */
-    public function edit(contrats $contrats)
+    public function edit(contrats $contrats,$id)
     {
-        //
+
+        // echo json_encode($contrats);
+        //return view('contratedit',compact('contrats'));
+       
+         {
+            $contrats =  contrats::find($id);
+            
+         return view('contratedit',compact('contrats'));
+         
+         }
+
     }
 
     /**
@@ -88,9 +98,19 @@ class ContratsController extends Controller
      * @param  \App\Models\contrats  $contrats
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, contrats $contrats)
+    public function update(Request $request, contrats $contrats, $id)
     {
-        //
+       
+    $request->validate([
+        'contrat' => 'required',
+        
+        
+        
+        ]);
+        $contrats= contrats::find($id);
+        $cntrats->contrat = $request->contrat;
+        $contrats->save();
+return redirect()->route('contrat.index');
     }
 
     /**
@@ -101,6 +121,8 @@ class ContratsController extends Controller
      */
     public function destroy(contrats $contrats)
     {
-        //
+        $contrats->delete();
+return redirect()->route('contrat.index')
+->with('success','Spécialité supprimée');
     }
 }
